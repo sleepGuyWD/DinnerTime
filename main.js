@@ -9,12 +9,12 @@ function randomMeal() {
                'Bowtie Pasta',
                'Omelette',
                'Beef n Broc',
-               'Chicken Salad, Asian Salad' ]
+               'Chicken Salad, Asian Salad']
 
-  let boxes = document.querySelectorAll('.dayText')
+  let boxes = document.querySelectorAll('.mealText')
 
-  boxes.forEach((x, i) => {
-   boxes[i] =  meals[Math.floor(Math.random() * meals.length)]
-  })
- 
+   for(i = 0; i < boxes.length; i++){
+    boxes[i].innerText = meals[Math.floor(Math.random() * meals.length)]
+  }
+
 }

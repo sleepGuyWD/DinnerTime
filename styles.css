@@ -47,9 +47,10 @@ main {
 }
 
 h1 {
-  height: 80%;
+  height: 50%;
   font-size: 3rem;
   display: flex;
+  margin: 0;
 }
 
 #heading, #actionSection {
@@ -122,3 +123,4 @@ i {
   height: 100px;
   width: 200px;
 }
+
