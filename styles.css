@@ -9,7 +9,7 @@ main {
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  margin-top: 10%;
+  margin-top: 5%;
   border: 10px solid rgb(253, 253, 253);
   border-radius: 5px;
   box-shadow: 1px 1px 15px black;
