@@ -7,4 +7,4 @@
 
  With one click, we can now be told what to eat during the week.
 
- https://wspacebyte.github.io/DinnerTime/
+https://sleepguywd.github.io/DinnerTime/
