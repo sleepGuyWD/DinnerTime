@@ -130,3 +130,47 @@ i:hover {
   transition-timing-function: ease-in;
 }
 
+@media only screen  and (max-width: 600px) {
+  html {
+    width: 390px;
+    height: 1500px;
+    
+  }
+  body, main {
+    width: 100%;
+    height: 100%;
+
+    
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    margin: 0 auto;
+    border: 3px solid white;
+    margin: 10px;
+  }
+  #infoSide {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+ 
+  }
+  .dayText, 
+  .mealText {
+    font-size: .7rem;
+  }
+  .dayBox {
+    height: 100%;
+  }
+  .row.big1, 
+  .row.big2 {
+    height: 20%;
+  }
+  #weeklySec {
+    padding: 0;
+    height: 50%;
+  }
+}
