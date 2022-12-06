@@ -2,6 +2,7 @@
 html {
   background:rgb(196, 241, 136);
   font-family: 'Mali';
+  box-sizing: border-box;
 }
 main {
   width: 1200px;
@@ -13,6 +14,7 @@ main {
   border: 10px solid rgb(253, 253, 253);
   border-radius: 5px;
   box-shadow: 1px 1px 15px black;
+  
 }
 
 #imgSec {
@@ -142,13 +144,19 @@ i:hover {
 
     
   }
+
+  body {
+    margin: 0;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
   main {
     display: flex;
     flex-direction: column;
-    width: 380px;
+    width: 90%;
     margin: 0 auto;
     border: 3px solid white;
-    margin: 10px;
+    
   }
   #infoSide {
     width: 100%;
