@@ -4,12 +4,13 @@ function randomMeal() {
   let meals = ['Salmon, Cauli, Salad', 
                'Chicken, Cauli', 
                'Taco Bowl',
-               'Chicken Pita',
                'Chicken Cajun Pasta',
                'Bowtie Pasta',
                'Omelette',
                'Beef n Broc',
-               'Chicken Salad, Asian Salad']
+               'Chicken Salad, Asian Salad',
+               'Chicken Curry'
+              ]
 
   let boxes = document.querySelectorAll('.mealText')
 
