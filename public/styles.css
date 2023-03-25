@@ -15,7 +15,7 @@ html {
   box-sizing: border-box;
 }
 main {
-  width: 90vw;
+  max-width: 70vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,12 +24,12 @@ main {
 }
 
 .top {
-  margin: 2rem 0 2rem 0;
-  width: 100%;
+  margin: 2rem 0 3rem 0;
+  max-width: 100%;
   height: 15%;
   background-color: #333f58;
   border-radius: 25px;
-  box-shadow: .2rem .2rem 10px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 3px 4px 3px rgba(0, 0, 0, 0.3);
 }
 .leftSections {
   width: 30%;
@@ -43,14 +43,18 @@ main {
 }
 
 .block {
-  box-shadow: .2rem .2rem 10px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 3px 4px 3px  rgba(0, 0, 0, 0.3);
   width: 100%;
   height: 25%;
   border-radius: 25px;
 }
 
 .block.Upper{
-  background: #ee8695
+  background: #ee8695;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
 }
 
 .block.Bottom{
@@ -69,8 +73,9 @@ main {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  margin-left: 2rem;
+  margin-left: 3rem;
   padding-bottom: 2rem;
+  
 }
 
 
@@ -83,7 +88,41 @@ main {
   justify-self: center;
   background-color: #FBBBAD;
   border-radius: 25px;
-  box-shadow: .2rem .2rem 10px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 3px 4px 3px  rgba(0, 0, 0, 0.3);
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+}
+
+#mealInput  {
+  width: 60%;
+
+}
+
+#inputBlock {
+  padding-bottom: 1rem;
+}
+
+button {
+  width: 20%;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  box-shadow: inset 1px 2px 1px 1px  rgba(0, 0, 0, 0.3);
+}
+
+input, 
+button {
+  border-radius: 25px;
+  border: none;
+  box-shadow: 2px 3px 10px 1px  rgba(0, 0, 0, 0.3);
 }
 
 #heading {

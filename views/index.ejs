@@ -20,7 +20,29 @@
       <section id="mid">
 
         <section class="leftSections">
-          <section class="block Upper"></section>
+
+          <section class="block Upper">
+            <form action="/meals" method="POST">
+              <div class="input Meal">
+                <span>Name of Meal</span>
+                <div id="inputBlock">
+                  <input type="text" name="meal" id="mealInput">
+                  <button type="submit">Add</button>
+                </div>
+              </div>
+            </form>
+
+            <form action="/meals" method="">
+              <div class="input Meal">
+                <span>Delete Meal</span>
+                <div id="deleteBlock">
+                  <input type="text" name="meal" id="mealDelete">
+                  <button type="submit">Delete</button>
+                </div>
+              </div>
+            </form>
+          </section>
+
           <section class="block Bottom"></section>
           <section class="block Random"></section>
         </section>
