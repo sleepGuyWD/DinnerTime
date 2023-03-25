@@ -1,41 +1,65 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
 
 html {
-  background:rgb(196, 241, 136);
+  background-image: url('./pattern.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   font-family: 'Mali';
   box-sizing: border-box;
 }
 main {
-  width: 1200px;
-  height: 600px;
-  margin: 0 auto;
+  width: 90vw;
+  height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-top: 5%;
-  border: 10px solid rgb(253, 253, 253);
-  border-radius: 5px;
-  box-shadow: 1px 1px 15px black;
-  
+  margin: 0 auto;
 }
 
-#imgSec {
-  width: 500px;
-  height: 100%;
+.top {
+  margin: 2rem 0 2rem 0;
+  width: 100%;
+  height: 15%;
+  background-color: #333f58;
+  border-radius: 25px;
+  box-shadow: .2rem .2rem 10px 5px rgba(0, 0, 0, 0.3);
 }
-
-#plate {
+.leftSections {
+  width: 30%;
+  height: 80vh;
+  background: c
+}
+#mid {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+}
+#bigGuy {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
+  padding-bottom: 2rem;
 }
 
+
 #infoSide {
-  width: 67%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   justify-self: center;
-  background-color: rgb(240, 206, 167);
-
+  background-color: #FBBBAD;
+  border-radius: 25px;
+  box-shadow: .2rem .2rem 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 #heading {
