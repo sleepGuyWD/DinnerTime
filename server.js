@@ -27,7 +27,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
       }
     }));
     
-    app.get('/',  async  (req, res) => {
+    app.get('/', async (req, res) => {
       try {
         foodCollection.find().toArray()
           .then(results => {
@@ -39,7 +39,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
       }
     })    
 
-    app.get('/random-document', (req, res) => {
+    app.get('/random-document', async (req, res) => {
       try {
         foodCollection.find().toArray()
           .then(results => {
