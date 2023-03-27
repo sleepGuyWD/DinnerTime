@@ -67,6 +67,51 @@ main {
 .block.Random{
   height: 30%;
   background: #6fb8e2;
+  position: relative;
+}
+
+.whiteBlock.outer,
+.whiteBlock.inner {
+  background: #FFF;
+  border-radius: 25px;
+  position: inherit;
+  top: 11%;
+  left: 11%;
+}
+
+.whiteBlock.outer{
+  width: 80%;
+  height: 80%;
+  
+  position: relative;
+}
+
+
+.whiteBlock.inner {
+  background: #FFF;
+  width: 100%;
+  height: 90%;
+  position: inherit;
+  top: 0;
+  left: 0;
+  box-shadow: 0 20px 4px 2px  rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.whiteBlock.inner:hover {
+  cursor: pointer;
+
+}
+
+.whiteBlock.inner:active {
+ 
+  box-shadow: inset 0 5px 2px 1px  rgba(0, 0, 0, 0.3);
+}
+
+.randomize {
+  font-size: 36px;
 }
 
 #bigGuy {
@@ -76,7 +121,7 @@ main {
   height: 100%;
   margin-left: 3rem;
   padding-bottom: 2rem;
-  
+
 }
 
 

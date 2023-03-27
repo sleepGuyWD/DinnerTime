@@ -31,7 +31,6 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
       try {
         foodCollection.find().toArray()
           .then(results => {
-            console.log(results[0])
             res.render('index.ejs', {meals: results})
           })
           .catch(error => console.error(error))
@@ -40,6 +39,19 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
       }
     })    
 
+    app.get('/random-document', (req, res) => {
+      try {
+        foodCollection.find().toArray()
+          .then(results => {
+           res.json(results)
+          })
+          .catch(error => console.error(error))
+      } catch (error) {
+        res.status(500).send({message: error.message})
+      }
+    });
+    
+
     app.post('/meals', (req, res) => {
       foodCollection.insertOne(req.body)
         .then(result => {
@@ -47,6 +59,19 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
         })
         .catch(error => console.error(error))
     })
+  })
+
+  app.delete('/meals', (req, res) => {
+    quotesCollection.deleteOne(
+      {name : req.body.name},
+    )
+    .then(result => {
+      if (result.deletedCount === 0) {
+        return res.json('No Quote to delete')
+      }
+      res.json(`A Meal`)
+    })
+    .catch(error => console.error(error))
   })
 
 app.listen(process.env.PORT, () => {
