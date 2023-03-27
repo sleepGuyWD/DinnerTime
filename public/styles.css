@@ -61,6 +61,7 @@ main {
   margin: 2rem 0 2rem 0;
   height: 33%;
   background: #4a7a96;
+
 }
 
 .block.Random{
@@ -102,6 +103,70 @@ main {
 
 }
 
+.meals {
+  margin-left: 3rem;
+  padding-bottom: 2rem;
+  overflow: auto;
+  height: 65%;
+  margin-right: 2px;
+}
+
+.meals::-webkit-scrollbar {
+  width: 6px;
+ 
+}
+
+.meals::-webkit-scrollbar-track {
+  background-color: #4a7a96;
+  border-radius: 3px;
+  padding-right: 3px;
+}
+
+.meals::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
+
+.meals::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+.meals::-webkit-scrollbar-thumb:vertical {
+  border-radius: 3px;
+}
+
+.meals::-webkit-scrollbar-thumb:horizontal {
+  border-radius: 3px;
+}
+
+.meals::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
+
+.meals:hover::-webkit-scrollbar-thumb {
+  background-color: #FFF;
+}
+
+.meals::-webkit-scrollbar-thumb:active {
+  background-color: #FFF;
+}
+
+.meals::-webkit-scrollbar-thumb:window-inactive {
+  background-color: #4a7a96;
+}
+
+.meals::-webkit-scrollbar-corner {
+  background-color: #f1f1f1;
+}
+
+.meals::-webkit-scrollbar-thumb {
+  visibility: hidden;
+}
+
+.meals:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+
 #inputBlock {
   padding-bottom: 1rem;
 }
@@ -137,6 +202,11 @@ h1 {
   font-size: 3rem;
   display: flex;
   margin: 0;
+}
+
+h2 {
+  margin-left: 1rem;
+  padding: 1rem 0;
 }
 
 #heading, #actionSection {

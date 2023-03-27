@@ -26,7 +26,7 @@
               <div class="input Meal">
                 <span>Name of Meal</span>
                 <div id="inputBlock">
-                  <input type="text" name="meal" id="mealInput">
+                  <input type="text" name="mealName" id="mealInput">
                   <button type="submit">Add</button>
                 </div>
               </div>
@@ -43,7 +43,20 @@
             </form>
           </section>
 
-          <section class="block Bottom"></section>
+          <section class="block Bottom">
+            <h2> Meals List</h2>
+
+            <ul class="meals">
+              <!-- Loop through quotes -->
+              <% for(var i = 0; i < meals.length; i++) {%>
+                <li class="meal">
+                  <!-- Output name from the iterated quote object -->
+                  <span><%= meals[i].mealName %></span>
+                  
+                </li>
+              <% } %>
+            </ul>
+          </section>
           <section class="block Random"></section>
         </section>
 
