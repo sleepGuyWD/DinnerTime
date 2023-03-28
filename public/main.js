@@ -1,9 +1,5 @@
 document.querySelector('.whiteBlock.inner').addEventListener('click', randomMeal)
 
-let toDelete = document.querySelector('#mealDelete').innerText
-
-const deleteButton = document.querySelector('.mealDelete')
-
 function randomMeal() {
    fetch('/random-document')
     .then(res => res.json())
@@ -19,22 +15,21 @@ function randomMeal() {
     .catch(err => console.error(err));
 }
 
-deleteButton.addEventListener('click', _ => {
-  fetch('deleteMeals', {
-    method: 'delete',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      name: toDelete
-    })
-  })
-  .then(res => {
-    if (res.ok) return res.json()
-  })
-  .then(response => {
-    if (response === 'No Quote to delete') {
-      messageDiv.textContent = 'No Darth Vader quote to delete'
-    } else {
-      window.location.reload()
-    }
-  })
-})
+document.getElementById('.mealDelete').addEventListener('click', async deleteTime) 
+
+function deleteTime() {
+  const foodName = document.getElementById('food-name').innerText;
+  console.log(foodName)
+  try {
+      const response = await fetch(`deleteMeals/${encodeURIComponent(foodName)}`, { method: 'DELETE' });
+      if (response.ok) {
+          alert('Food deleted successfully!');
+          window.location.reload()
+      } else {
+          alert('Failed to delete the food.');
+      }
+  } catch (error) {
+      console.error('Error:', error);
+      alert('Error deleting the food.');
+  }
+};
