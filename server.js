@@ -8,7 +8,6 @@ require('dotenv').config()
 let db,
     dbConnectionStr = process.env.DB_STRING,
     dbName = 'Dinner',
-    collection = 'DinnerTime',
     foodCollection
     
 
@@ -16,7 +15,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
   .then(client => {
     console.log(`Connected to ${dbName} Database`)
     db = client.db(dbName)
-    foodCollection = db.collection(collection)
+    foodCollection = db.collection('DinnerTime')
 
     app.set('view engine', 'ejs')
     app.use(express.static('public'))
@@ -67,23 +66,32 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
   })
 
   app.delete('/deleteMeals/:name', async (req, res) => {
-      try {
-
-        const name = req.params.name;
-        const query = { name };
-        const result = await foodCollection.deleteOne(query);
-
-        if (result.deletedCount > 0) {
-            res.status(200).send('Food deleted successfully.');
+    try {
+      const name = req.params.name.toLowerCase();
+      
+      const result = await foodCollection.aggregate([
+        { $match: { $expr: { $eq: [{ $toLower: '$name' }, name] } } },
+        { $limit: 1 }
+      ]).toArray();
+  
+      if (result.length > 0) {
+        const foodToDelete = result[0];
+        const deleteResult = await foodCollection.deleteOne({ _id: foodToDelete._id });
+  
+        if (deleteResult.deletedCount > 0) {
+          res.status(200).send('Food deleted successfully.');
         } else {
-            res.status(404).send('Food not found.');
+          res.status(500).send('Error deleting the food.');
         }
-
+      } else {
+        res.status(404).send('Food not found.');
+      }
     } catch (error) {
-        console.error('Error:', error);
-        res.status(500).send('Error deleting the food.');
+      console.error('Error:', error);
+      res.status(500).send('Error deleting the food.');
     }
-  })
+  });
+  
 
 app.listen(process.env.PORT, () => {
   console.log(`listening on ${process.env.PORT}`)

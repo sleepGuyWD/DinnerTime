@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Mali:wght@500;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/77ee45b8f4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link type="image/png" sizes="32x32" rel="icon" href=".../icons8-waste-32.png">
   </head>
   <body>
     <main>
@@ -31,28 +32,18 @@
                 </div>
               </div>
             </form>
-
-            <form action="" method="DELETE" id="delete-form">
-              <div class="input Meal">
-                <span>Delete Meal</span>
-                <div id="deleteBlock">
-                  <input type="text" name="food-name" id="food-name">
-                  <button class="mealDelete" type="submit">Delete</button>
-                </div>
-              </div>
-            </form>
-
           </section>
 
           <section class="block Bottom">
-            <h2> Meals List</h2>
+            <h2> Meals List </h2>
 
             <ul class="meals">
               <!-- Loop through quotes -->
               <% for(var i = 0; i < meals.length; i++) {%>
                 <li class="meal">
                   <!-- Output name from the iterated quote object -->
-                  <span><%= meals[i].mealName %></span>
+                  <span><%= meals[i].mealName %></span> 
+                  <span class="icon-span"></span>
                   
                 </li>
               <% } %>
