@@ -1,4 +1,5 @@
 document.querySelector('.whiteBlock.inner').addEventListener('click', randomMeal)
+
 let toDelete = document.querySelector('#mealDelete').innerText
 
 const deleteButton = document.querySelector('.mealDelete')
@@ -19,7 +20,7 @@ function randomMeal() {
 }
 
 deleteButton.addEventListener('click', _ => {
-  fetch('DinnerTime', {
+  fetch('deleteMeals', {
     method: 'delete',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({

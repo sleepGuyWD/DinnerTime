@@ -39,11 +39,13 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
       }
     })    
 
-    app.get('/random-document', (req, res) => {
+    app.get('/random-document', async (req, res) => {
       try {
+        
         foodCollection.find().toArray()
           .then(results => {
-           res.json(results)
+            console.log(results)
+            res.json(results)
           })
           .catch(error => console.error(error))
       } catch (error) {
@@ -61,18 +63,16 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     })
   })
 
-  app.delete('/meals', (req, res) => {
-    quotesCollection.deleteOne(
-      {name : req.body.name},
-    )
-    .then(result => {
-      if (result.deletedCount === 0) {
-        return res.json('No Quote to delete')
-      }
-      res.json(`A Meal`)
+  app.delete('/deleteMeals', (req, res) => {
+    foodCollection.deleteOne({name : req.body.name})
+      .then(result => {
+        if (result.deletedCount === 0) {
+          return res.json('No Quote to delete')
+        }
+        res.json(`A Meal`)
+      })
+      .catch(error => console.error(error))
     })
-    .catch(error => console.error(error))
-  })
 
 app.listen(process.env.PORT, () => {
   console.log(`listening on ${process.env.PORT}`)
