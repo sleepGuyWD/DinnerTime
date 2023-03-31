@@ -55,7 +55,6 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
       }
     });
     
-
     app.post('/meals', (req, res) => {
       foodCollection.insertOne(req.body)
         .then(result => {
@@ -63,35 +62,16 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
         })
         .catch(error => console.error(error))
     })
-  })
-
-  app.delete('/deleteMeals/:name', async (req, res) => {
-    try {
-      const name = req.params.name.toLowerCase();
-      
-      const result = await foodCollection.aggregate([
-        { $match: { $expr: { $eq: [{ $toLower: '$name' }, name] } } },
-        { $limit: 1 }
-      ]).toArray();
   
-      if (result.length > 0) {
-        const foodToDelete = result[0];
-        const deleteResult = await foodCollection.deleteOne({ _id: foodToDelete._id });
-  
-        if (deleteResult.deletedCount > 0) {
-          res.status(200).send('Food deleted successfully.');
-        } else {
-          res.status(500).send('Error deleting the food.');
-        }
-      } else {
-        res.status(404).send('Food not found.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      res.status(500).send('Error deleting the food.');
-    }
-  });
-  
+    app.delete('/deleteMeal',  (req, res) => {
+        foodCollection.deleteOne({mealName: req.body.name})
+          .then(result => {
+            console.log('Meal Deleted')
+            res.json('Meal Deleted')
+          })
+          .catch(error => console.error(error))
+    });
+  }) 
 
 app.listen(process.env.PORT, () => {
   console.log(`listening on ${process.env.PORT}`)

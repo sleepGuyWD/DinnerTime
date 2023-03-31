@@ -1,3 +1,9 @@
+let deleteBtn = document.querySelectorAll('.icon-span')
+
+Array.from(deleteBtn).forEach((e) => {
+    e.addEventListener('click', deleteMeal)
+})
+
 document.querySelector('.whiteBlock.inner').addEventListener('click', randomMeal)
 
 function randomMeal() {
@@ -15,4 +21,23 @@ function randomMeal() {
     .catch(err => console.error(err));
 }
 
+ async function deleteMeal() {
+    const mealText = this.parentNode.childNodes[1].innerText
 
+   try { 
+        const res = await fetch('deleteMeal', {
+            method: 'delete',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'name': mealText
+            })
+        })
+        const data = await res.json()
+        console.log(data)
+        location.reload()
+    } catch (err) {
+        console.log(err)
+    }
+
+   
+}
