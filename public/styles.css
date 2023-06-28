@@ -115,7 +115,7 @@ main {
 }
 
 #bigGuy {
-  display: grid;
+  display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
@@ -131,7 +131,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  justify-self: center;
+
   background-color: #FBBBAD;
   border-radius: 25px;
   box-shadow: 2px 3px 4px 3px  rgba(0, 0, 0, 0.3);
@@ -291,13 +291,14 @@ h2 {
 
 #weeklySec {
   height: 50%;
-  width: 97.5%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 10px;
   font-size: 22px;
   
 }
+
 
 .row.small {
   height: 20%;
@@ -306,7 +307,7 @@ h2 {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+
 }
 
 .dayNameBox {
@@ -335,6 +336,11 @@ h2 {
   margin-bottom: 1rem;
 }
 
+#dayBoxLast1,
+#dayBoxLast2 {
+  margin: 0;
+}
+
 .dayBox {
   width: 124.53px;
   height: 100%;
@@ -346,6 +352,8 @@ h2 {
   border-radius: 15px;
   margin-right: 1rem;
 }
+
+
 
 @media only screen  and (max-width: 600px) {
   html {
