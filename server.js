@@ -3,7 +3,21 @@ const app = express()
 const cors = require('cors')
 const mime = require('mime');
 const MongoClient = require('mongodb').MongoClient
+const connectDB = require('./config/database')
 require('dotenv').config()
+
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+app.use(cors())
+
+app.use(express.static('public', {
+  setHeaders: (res, path, stat) => {
+    res.set('Content-Type', mime.getType(path));
+  }
+}));
+
 
 let db,
     dbConnectionStr = process.env.DB_STRING,
@@ -16,17 +30,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     db = client.db(dbName)
     foodCollection = db.collection('DinnerTime')
 
-    app.set('view engine', 'ejs')
-    app.use(express.static('public'))
-    app.use(express.urlencoded({extended: true}))
-    app.use(express.json())
-    app.use(cors())
-    
-    app.use(express.static('public', {
-      setHeaders: (res, path, stat) => {
-        res.set('Content-Type', mime.getType(path));
-      }
-    }));
+
     
     app.get('/', async (req, res) => {
       try {
