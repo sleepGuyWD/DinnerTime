@@ -2,8 +2,12 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const mime = require('mime');
+
 const MongoClient = require('mongodb').MongoClient
 const connectDB = require('./config/database')
+
+const homeRoutes = require('/routes/home')
+
 require('dotenv').config()
 
 app.set('view engine', 'ejs')
@@ -17,6 +21,8 @@ app.use(express.static('public', {
     res.set('Content-Type', mime.getType(path));
   }
 }));
+
+app.use('/', homeRoutes)
 
 
 let db,
